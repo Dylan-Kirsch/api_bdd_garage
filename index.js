@@ -50,7 +50,8 @@ app.get("/voiture/:id", function(request, response)
 
 app.post('/voiture', (request, response) => {
     // const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+request.body.marques+"','"+request.body.models+"','"+request.body.kilomètres+"');";
-    const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+"Audi"+"','"+"e-tron GT quattro"+"','"+50+"');";    console.log(querys);
+    const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+"Audi"+"','"+"e-tron GT quattro"+"','"+50+"');";    
+    console.log(querys);
     connect.query(querys, function(err, result)
     {
         if(err) throw err;
