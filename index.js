@@ -49,8 +49,8 @@ app.get("/voiture/:id", function(request, response)
 });
 
 app.post('/voiture', (request, response) => {
-    // const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+request.body.marques+"','"+request.body.models+"','"+request.body.kilomètres+"');";
-    const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+"Audi"+"','"+"e-tron GT quattro"+"','"+50+"');";    
+    const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+request.body.marques+"','"+request.body.models+"','"+request.body.kilomètres+"');";
+    // const querys = "INSERT INTO voiture (marques, models, kilomètres) values ('"+"Audi"+"','"+"e-tron GT quattro"+"','"+50+"');";    
     console.log(querys);
     connect.query(querys, function(err, result)
     {
@@ -71,6 +71,19 @@ app.delete('/voiture/:id', (request, response) => {
         response.status(200).json(result);
     })
 });
+
+// UPDATE
+
+app.put('/voiture/:id', (request, response) => {
+    const querys = " Update voiture SET `marques`='porche',`models`='cayenne',`kilomètres`='100' WHERE id ="+request.params.id+ ";";
+
+    connect.query(querys, function(err, result)
+    {
+        if(err) throw err;
+        console.log(result);
+        response.status(200).json(result);
+    })
+})
 
 
 
