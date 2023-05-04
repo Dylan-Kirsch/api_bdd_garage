@@ -75,7 +75,7 @@ app.delete('/voiture/:id', (request, response) => {
 // UPDATE
 
 app.put('/voiture/:id', (request, response) => {
-    const querys = " Update voiture SET `marques`='porche',`models`='cayenne',`kilomètres`='100' WHERE id ="+request.params.id+ ";";
+    const querys = "UPDATE voiture SET `marques`="+request.body.marques+",`models`="+request.body.models+",`kilomètres`="+request.body.kilomètres+" WHERE id ="+request.params.id+";";
 
     connect.query(querys, function(err, result)
     {
@@ -83,7 +83,7 @@ app.put('/voiture/:id', (request, response) => {
         console.log(result);
         response.status(200).json(result);
     })
-})
+});
 
 
 
